@@ -1,0 +1,11 @@
+SQL> select distinct name from country where AREA > 4999999;
+
+NAME                                                                            
+--------------------------------------------------                              
+Brazil                                                                          
+China                                                                           
+Australia                                                                       
+Canada                                                                          
+United States                                                                   
+
+SQL> SPOOL OFF
