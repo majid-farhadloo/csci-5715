@@ -1,0 +1,519 @@
+SQL> select * from country where (REGION='Asia' or REGION='Europe') and year=2004 order by POPULATION DESC
+  2  ;
+
+NAME                                               YEAR                         
+-------------------------------------------------- ----                         
+REGION                                                             AREA         
+------------------------------------------------------------ ----------         
+POPULATION        GDP                                                           
+---------- ----------                                                           
+China                                              2004                         
+Asia                                                            9596960         
+1298847624       .091                                                           
+                                                                                
+India                                              2004                         
+Asia                                                            3287590         
+1065070607       .083                                                           
+
+NAME                                               YEAR                         
+-------------------------------------------------- ----                         
+REGION                                                             AREA         
+------------------------------------------------------------ ----------         
+POPULATION        GDP                                                           
+---------- ----------                                                           
+                                                                                
+Pakistan                                           2004                         
+Asia                                                             803940         
+ 159196336       .055                                                           
+                                                                                
+Bangladesh                                         2004                         
+Asia                                                             144000         
+
+NAME                                               YEAR                         
+-------------------------------------------------- ----                         
+REGION                                                             AREA         
+------------------------------------------------------------ ----------         
+POPULATION        GDP                                                           
+---------- ----------                                                           
+ 141340476       .053                                                           
+                                                                                
+Japan                                              2004                         
+Asia                                                             377835         
+ 127333002       .027                                                           
+                                                                                
+Germany                                            2004                         
+
+NAME                                               YEAR                         
+-------------------------------------------------- ----                         
+REGION                                                             AREA         
+------------------------------------------------------------ ----------         
+POPULATION        GDP                                                           
+---------- ----------                                                           
+Europe                                                           356910         
+  82424609      -.001                                                           
+                                                                                
+France                                             2004                         
+Europe                                                           547030         
+  60424213       .005                                                           
+                                                                                
+
+NAME                                               YEAR                         
+-------------------------------------------------- ----                         
+REGION                                                             AREA         
+------------------------------------------------------------ ----------         
+POPULATION        GDP                                                           
+---------- ----------                                                           
+United Kingdom                                     2004                         
+Europe                                                           244820         
+  60270708       .022                                                           
+                                                                                
+Italy                                              2004                         
+Europe                                                           301230         
+  58057477       .004                                                           
+
+NAME                                               YEAR                         
+-------------------------------------------------- ----                         
+REGION                                                             AREA         
+------------------------------------------------------------ ----------         
+POPULATION        GDP                                                           
+---------- ----------                                                           
+                                                                                
+Spain                                              2004                         
+Europe                                                           504750         
+  40280780       .024                                                           
+                                                                                
+Afghanistan                                        2004                         
+Asia                                                             647500         
+
+NAME                                               YEAR                         
+-------------------------------------------------- ----                         
+REGION                                                             AREA         
+------------------------------------------------------------ ----------         
+POPULATION        GDP                                                           
+---------- ----------                                                           
+  28513677        .29                                                           
+                                                                                
+Nepal                                              2004                         
+Asia                                                             140800         
+  27070666        .03                                                           
+                                                                                
+Sri Lanka                                          2004                         
+
+NAME                                               YEAR                         
+-------------------------------------------------- ----                         
+REGION                                                             AREA         
+------------------------------------------------------------ ----------         
+POPULATION        GDP                                                           
+---------- ----------                                                           
+Asia                                                              65610         
+  19905165       .055                                                           
+                                                                                
+Netherlands                                        2004                         
+Europe                                                            37330         
+  16318199      -.007                                                           
+                                                                                
+
+NAME                                               YEAR                         
+-------------------------------------------------- ----                         
+REGION                                                             AREA         
+------------------------------------------------------------ ----------         
+POPULATION        GDP                                                           
+---------- ----------                                                           
+Greece                                             2004                         
+Europe                                                           131940         
+  10647529       .047                                                           
+                                                                                
+Portugal                                           2004                         
+Europe                                                            92080         
+  10524145      -.013                                                           
+
+NAME                                               YEAR                         
+-------------------------------------------------- ----                         
+REGION                                                             AREA         
+------------------------------------------------------------ ----------         
+POPULATION        GDP                                                           
+---------- ----------                                                           
+                                                                                
+Belgium                                            2004                         
+Europe                                                            30510         
+  10348276       .011                                                           
+                                                                                
+Sweden                                             2004                         
+Europe                                                           449964         
+
+NAME                                               YEAR                         
+-------------------------------------------------- ----                         
+REGION                                                             AREA         
+------------------------------------------------------------ ----------         
+POPULATION        GDP                                                           
+---------- ----------                                                           
+   8986400       .017                                                           
+                                                                                
+Austria                                            2004                         
+Europe                                                            83850         
+   8174762       .007                                                           
+                                                                                
+Switzerland                                        2004                         
+
+NAME                                               YEAR                         
+-------------------------------------------------- ----                         
+REGION                                                             AREA         
+------------------------------------------------------------ ----------         
+POPULATION        GDP                                                           
+---------- ----------                                                           
+Europe                                                            41290         
+   7450867      -.005                                                           
+                                                                                
+Denmark                                            2004                         
+Europe                                                            43070         
+   5413392          0                                                           
+                                                                                
+
+NAME                                               YEAR                         
+-------------------------------------------------- ----                         
+REGION                                                             AREA         
+------------------------------------------------------------ ----------         
+POPULATION        GDP                                                           
+---------- ----------                                                           
+Finland                                            2004                         
+Europe                                                           337030         
+   5214512       .019                                                           
+                                                                                
+Norway                                             2004                         
+Europe                                                           324220         
+   4574560       .006                                                           
+
+NAME                                               YEAR                         
+-------------------------------------------------- ----                         
+REGION                                                             AREA         
+------------------------------------------------------------ ----------         
+POPULATION        GDP                                                           
+---------- ----------                                                           
+                                                                                
+Ireland                                            2004                         
+Europe                                                            70280         
+   3969558       .014                                                           
+                                                                                
+Lithuania                                          2004                         
+Europe                                                            65200         
+
+NAME                                               YEAR                         
+-------------------------------------------------- ----                         
+REGION                                                             AREA         
+------------------------------------------------------------ ----------         
+POPULATION        GDP                                                           
+---------- ----------                                                           
+   3607899        .09                                                           
+                                                                                
+Mongolia                                           2004                         
+Asia                                                                  1         
+   2751314        .05                                                           
+                                                                                
+Latvia                                             2004                         
+
+NAME                                               YEAR                         
+-------------------------------------------------- ----                         
+REGION                                                             AREA         
+------------------------------------------------------------ ----------         
+POPULATION        GDP                                                           
+---------- ----------                                                           
+Europe                                                            64100         
+   2306306       .074                                                           
+                                                                                
+Bhutan                                             2004                         
+Asia                                                              47000         
+   2185569       .077                                                           
+                                                                                
+
+NAME                                               YEAR                         
+-------------------------------------------------- ----                         
+REGION                                                             AREA         
+------------------------------------------------------------ ----------         
+POPULATION        GDP                                                           
+---------- ----------                                                           
+Estonia                                            2004                         
+Europe                                                            45100         
+   1341664       .047                                                           
+                                                                                
+Luxembourg                                         2004                         
+Europe                                                             2586         
+    462690       .012                                                           
+
+NAME                                               YEAR                         
+-------------------------------------------------- ----                         
+REGION                                                             AREA         
+------------------------------------------------------------ ----------         
+POPULATION        GDP                                                           
+---------- ----------                                                           
+                                                                                
+Malta                                              2004                         
+Europe                                                              320         
+    396851       .008                                                           
+                                                                                
+Maldives                                           2004                         
+Asia                                                                300         
+
+NAME                                               YEAR                         
+-------------------------------------------------- ----                         
+REGION                                                             AREA         
+------------------------------------------------------------ ----------         
+POPULATION        GDP                                                           
+---------- ----------                                                           
+    339330       .023                                                           
+                                                                                
+Andorra                                            2004                         
+Europe                                                              450         
+     69865       .038                                                           
+                                                                                
+Faroe Islands                                      2004                         
+
+NAME                                               YEAR                         
+-------------------------------------------------- ----                         
+REGION                                                             AREA         
+------------------------------------------------------------ ----------         
+POPULATION        GDP                                                           
+---------- ----------                                                           
+Europe                                                             1400         
+     46662         .1                                                           
+                                                                                
+Liechtenstein                                      2004                         
+Europe                                                              160         
+     33436        .11                                                           
+                                                                                
+
+NAME                                               YEAR                         
+-------------------------------------------------- ----                         
+REGION                                                             AREA         
+------------------------------------------------------------ ----------         
+POPULATION        GDP                                                           
+---------- ----------                                                           
+Monaco                                             2004                         
+Europe                                                                1         
+     32270                                                                      
+                                                                                
+San Marino                                         2004                         
+Europe                                                               60         
+     28503       .075                                                           
+
+NAME                                               YEAR                         
+-------------------------------------------------- ----                         
+REGION                                                             AREA         
+------------------------------------------------------------ ----------         
+POPULATION        GDP                                                           
+---------- ----------                                                           
+                                                                                
+
+37 rows selected.
+
+SQL> select distinct NAME AS 'EUROPE-C' FROM COUNTRY WHERE POPULATION>1000000 AND YEAR=2003;
+select distinct NAME AS 'EUROPE-C' FROM COUNTRY WHERE POPULATION>1000000 AND YEAR=2003
+                        *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected 
+
+
+SQL> select distinct NAME AS "EUR-NAME"  FROM COUNTRY WHERE POPULATION>1000000 AND YEAR=2003
+  2  ;
+
+EUR-NAME                                                                        
+--------------------------------------------------                              
+Australia                                                                       
+Afghanistan                                                                     
+Albania                                                                         
+Algeria                                                                         
+Angola                                                                          
+Argentina                                                                       
+Armenia                                                                         
+Bhutan                                                                          
+Bolivia                                                                         
+Cameroon                                                                        
+Canada                                                                          
+
+EUR-NAME                                                                        
+--------------------------------------------------                              
+Botswana                                                                        
+Brazil                                                                          
+Bulgaria                                                                        
+Burundi                                                                         
+Cambodia                                                                        
+Austria                                                                         
+Azerbaijan                                                                      
+Bangladesh                                                                      
+Belarus                                                                         
+Belgium                                                                         
+Benin                                                                           
+
+EUR-NAME                                                                        
+--------------------------------------------------                              
+Denmark                                                                         
+Central African Republic                                                        
+Chad                                                                            
+Chile                                                                           
+China                                                                           
+Costa Rica                                                                      
+Croatia                                                                         
+Cuba                                                                            
+Czech Republic                                                                  
+Finland                                                                         
+Germany                                                                         
+
+EUR-NAME                                                                        
+--------------------------------------------------                              
+Ghana                                                                           
+France                                                                          
+Gabon                                                                           
+Georgia                                                                         
+Dominican Republic                                                              
+Ecuador                                                                         
+Egypt                                                                           
+El Salvador                                                                     
+Eritrea                                                                         
+Estonia                                                                         
+Ethiopia                                                                        
+
+EUR-NAME                                                                        
+--------------------------------------------------                              
+Iran                                                                            
+Iraq                                                                            
+Ireland                                                                         
+Greece                                                                          
+Guatemala                                                                       
+Guinea                                                                          
+Haiti                                                                           
+Honduras                                                                        
+Hong Kong                                                                       
+Hungary                                                                         
+India                                                                           
+
+EUR-NAME                                                                        
+--------------------------------------------------                              
+Indonesia                                                                       
+Latvia                                                                          
+Lebanon                                                                         
+Madagascar                                                                      
+Malawi                                                                          
+Lesotho                                                                         
+Liberia                                                                         
+Lithuania                                                                       
+Israel                                                                          
+Italy                                                                           
+Jamaica                                                                         
+
+EUR-NAME                                                                        
+--------------------------------------------------                              
+Japan                                                                           
+Jordan                                                                          
+Kazakhstan                                                                      
+Kenya                                                                           
+Kuwait                                                                          
+Kyrgyzstan                                                                      
+Nepal                                                                           
+Netherlands                                                                     
+Malaysia                                                                        
+Mali                                                                            
+Mauritania                                                                      
+
+EUR-NAME                                                                        
+--------------------------------------------------                              
+Mauritius                                                                       
+Mexico                                                                          
+Mongolia                                                                        
+Morocco                                                                         
+Mozambique                                                                      
+Namibia                                                                         
+Panama                                                                          
+Portugal                                                                        
+Puerto Rico                                                                     
+Papua New Guinea                                                                
+Paraguay                                                                        
+
+EUR-NAME                                                                        
+--------------------------------------------------                              
+Peru                                                                            
+Philippines                                                                     
+Poland                                                                          
+New Zealand                                                                     
+Nicaragua                                                                       
+Niger                                                                           
+Nigeria                                                                         
+Norway                                                                          
+Oman                                                                            
+Pakistan                                                                        
+Somalia                                                                         
+
+EUR-NAME                                                                        
+--------------------------------------------------                              
+Romania                                                                         
+Rwanda                                                                          
+Saudi Arabia                                                                    
+Senegal                                                                         
+Sierra Leone                                                                    
+Singapore                                                                       
+Slovakia                                                                        
+Slovenia                                                                        
+Thailand                                                                        
+Togo                                                                            
+Uganda                                                                          
+
+EUR-NAME                                                                        
+--------------------------------------------------                              
+Ukraine                                                                         
+Tunisia                                                                         
+Turkey                                                                          
+Turkmenistan                                                                    
+South Africa                                                                    
+Spain                                                                           
+Sri Lanka                                                                       
+Sudan                                                                           
+Swaziland                                                                       
+Sweden                                                                          
+Switzerland                                                                     
+
+EUR-NAME                                                                        
+--------------------------------------------------                              
+Tajikistan                                                                      
+United Arab Emirates                                                            
+United Kingdom                                                                  
+United States                                                                   
+Uruguay                                                                         
+Uzbekistan                                                                      
+Venezuela                                                                       
+Yemen                                                                           
+Zambia                                                                          
+Zimbabwe                                                                        
+
+131 rows selected.
+
+SQL> SELECT DISTINCT REGION FROM COUNTRY WHERE LOWER(REGION) LIKE '%p%' or LOWER(REGION) LIKE '%g%';
+
+REGION                                                                          
+------------------------------------------------------------                    
+Europe                                                                          
+Commonwealth of Independent States - European States                            
+Ethnic Groups in Eastern Europe, Europe                                         
+Arctic Region                                                                   
+Commonwealth of Independent States - Central Asian States                       
+
+SQL> select distinct REGION FROM COUNTRY WHERE LOWER(NAME) LIKE '%p%' OR LOWER(NAME) LIKE '%g%';
+
+REGION                                                                          
+------------------------------------------------------------                    
+Europe                                                                          
+Africa                                                                          
+Southeast Asia                                                                  
+Ethnic Groups in Eastern Europe, Europe                                         
+Middle East                                                                     
+Arctic Region                                                                   
+Commonwealth of Independent States - Central Asian States                       
+Asia                                                                            
+Central America and the Caribbean                                               
+Oceania                                                                         
+South America                                                                   
+
+REGION                                                                          
+------------------------------------------------------------                    
+World                                                                           
+
+12 rows selected.
+
+SQL> spool off
