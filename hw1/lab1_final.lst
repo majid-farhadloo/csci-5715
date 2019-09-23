@@ -343,28 +343,23 @@ United Kingdom
 
 SQL> SELECT DISTINCT REGION
   2  FROM COUNTRY
-  3  WHERE LOWER(NAME) LIKE '%p%'
-  4  OR LOWER(NAME) LIKE '%g%';
+  3  WHERE LOWER(NAME) LIKE 'p%'
+  4  OR LOWER(NAME) LIKE 'g%';
 
 REGION                                                                          
 ------------------------------------------------------------                    
 Europe                                                                          
 Africa                                                                          
 Southeast Asia                                                                  
-Ethnic Groups in Eastern Europe, Europe                                         
 Middle East                                                                     
 Arctic Region                                                                   
-Commonwealth of Independent States - Central Asian States                       
-Asia                                                                            
+Ethnic Groups in Eastern Europe, Europe                                         
 Central America and the Caribbean                                               
+Asia                                                                            
 Oceania                                                                         
 South America                                                                   
 
-REGION                                                                          
-------------------------------------------------------------                    
-World                                                                           
-
-12 rows selected.
+10 rows selected.
 
 SQL> SELECT COUNT(NAME) AS NUM_COUNTRIES, AVG(GDP) AS AVG_GDP
   2  FROM COUNTRY
