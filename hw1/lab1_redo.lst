@@ -209,7 +209,7 @@ POPULATION        GDP
    3607899        .09                                                           
                                                                                 
 Mongolia                                           2004                         
-Asia                                                                 80         
+Asia                                                                  1         
    2751314        .05                                                           
                                                                                 
 Latvia                                             2004                         
@@ -290,12 +290,23 @@ REGION                                                             AREA
 ------------------------------------------------------------ ----------         
 POPULATION        GDP                                                           
 ---------- ----------                                                           
+Monaco                                             2004                         
+Europe                                                                1         
+     32270                                                                      
+                                                                                
 San Marino                                         2004                         
-Europe                                                               80         
+Europe                                                               60         
      28503       .075                                                           
+
+NAME                                               YEAR                         
+-------------------------------------------------- ----                         
+REGION                                                             AREA         
+------------------------------------------------------------ ----------         
+POPULATION        GDP                                                           
+---------- ----------                                                           
                                                                                 
 
-36 rows selected.
+37 rows selected.
 
 SQL> SELECT DISTINCT NAME
   2  FROM COUNTRY
@@ -363,7 +374,7 @@ SQL> SELECT COUNT(NAME) AS NUM_COUNTRIES, AVG(GDP) AS AVG_GDP
 
 NUM_COUNTRIES    AVG_GDP                                                        
 ------------- ----------                                                        
-           25     .03112                                                        
+           26     .03112                                                        
 
 SQL> SELECT DISTINCT REGION
   2  FROM COUNTRY
