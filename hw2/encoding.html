@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <title>My Geocode App</title>
+</head>
+<body>
+ 
+  <script>
+ 
+    geocode();
+
+    function geocode(){
+      // Prevent actual submit
+      
+
+      var location = 'Manaus, Brazil';
+
+      axios.get('https://maps.googleapis.com/maps/api/geocode/json',{
+        params:{
+          address:location,
+          key:'AIzaSyCfVA0eyQGJuj0wGvRYN9wCyJTiH6CYxkg'
+        }
+      }).then(function(response){
+        console.log(response.data.results[0].address_components[0].long_name);
+        console.log(response.data.results[0].geometry.location);
+      }). catch(function(error){
+
+        console.log(error);
+      });
+  
+  }
+  </script>
+</body>
+</html>
+
+
+<!-- 
+Duluth: 
+Latitude  46.7819594641384
+Longitude -92.119453934523
+
+Cape town, Africa
+lat: -33.9248685
+lng: 18.4240553
+
+Fresno, Ca
+lat: 36.7377981
+lng: -119.7871247
+
+
+Manchester, United Kingdom
+lat: 53.4807593 
+lng: -2.2426305
+
+
+Tabriz, Iran
+lat: 38.096239
+lng: 46.2738013
+
+
+Auckland, New Zealand
+lat: -36.8484597
+lng: 174.7633315
+
+
+Manaus, Brazil
+
+lat: -3.1190275
+lng: -60.0217314 -->
+
+
+
+<!-- Reverse -->
+
+<!-- 1) 40, 30
+
+Süleymaniye, Unnamed Road, 11800 Demirköy/Pazaryeri/Bilecik, Turkey 
+
+2) -10, 20
+
+Mona Quimbundo, Angola
+
+3) 45, 93
+
+Barkol, Kumul, Xinjiang, China
+
+4) 30,-110
+
+Cumpas, Sonora, Mexico
+
+ -->
+
+
+
+
+
