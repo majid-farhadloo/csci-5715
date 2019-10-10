@@ -34,7 +34,7 @@ from csci5715.RIVERS r1 order by length desc;
 
 -- task 6
 
-select c1.name, co1.name 
+select c1.name as city, co1.name as country
 from csci5715.CITIES c1,
 csci5715.COUNTRIES co1,
 csci5715.RIVERS r1
