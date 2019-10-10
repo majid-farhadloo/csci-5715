@@ -1,0 +1,303 @@
+SQL> 
+SQL> -- task1
+SQL> select c1.name, SDO_GEOM.SDO_CENTROID(c1.GEOM) as Centroid
+  2  from csci5715.COUNTRIES c1
+  3  where c1.name = 'France';
+
+NAME                                                                            
+--------------------------------------------------                              
+CENTROID(SDO_GTYPE, SDO_SRID, SDO_POINT(X, Y, Z), SDO_ELEM_INFO, SDO_ORDINATES) 
+--------------------------------------------------------------------------------
+France                                                                          
+SDO_GEOMETRY(2001, 4326, SDO_POINT_TYPE(2.57431263, 46.5176872, NULL), NULL, NUL
+L)                                                                              
+                                                                                
+
+SQL> 
+SQL> 
+SQL> -- task 2
+SQL> 
+SQL> select distinct c1.region from csci5715.COUNTRIES c1
+  2  order by region asc;
+
+    REGION                                                                      
+----------                                                                      
+         0                                                                      
+         2                                                                      
+         9                                                                      
+        19                                                                      
+       142                                                                      
+       150                                                                      
+
+6 rows selected.
+
+SQL> 
+SQL> 
+SQL> 
+SQL> -- task3
+SQL> 
+SQL> select c1.name, c1.ISO2 ISO2, c1.ISO3 ISO3,
+  2  c1.region region, SDO_GEOM.SDO_CENTROID(c1.GEOM, 0.5)
+  3  from csci5715.COUNTRIES c1 where c1.pop2005>200000000;
+
+NAME                                               IS ISO     REGION            
+-------------------------------------------------- -- --- ----------            
+SDO_GEOM.SDO_CENTROID(C1.GEOM,0.5)(SDO_GTYPE, SDO_SRID, SDO_POINT(X, Y, Z), SDO_
+--------------------------------------------------------------------------------
+China                                              CN CHN        142            
+SDO_GEOMETRY(2001, 4326, SDO_POINT_TYPE(103.235327, 36.7235573, NULL), NULL, NUL
+L)                                                                              
+                                                                                
+India                                              IN IND        142            
+SDO_GEOMETRY(2001, 4326, SDO_POINT_TYPE(79.6080695, 22.7553623, NULL), NULL, NUL
+L)                                                                              
+                                                                                
+United States                                      US USA         19            
+
+NAME                                               IS ISO     REGION            
+-------------------------------------------------- -- --- ----------            
+SDO_GEOM.SDO_CENTROID(C1.GEOM,0.5)(SDO_GTYPE, SDO_SRID, SDO_POINT(X, Y, Z), SDO_
+--------------------------------------------------------------------------------
+SDO_GEOMETRY(2001, 4326, SDO_POINT_TYPE(-105.58132, 45.4592736, NULL), NULL, NUL
+L)                                                                              
+                                                                                
+Indonesia                                          ID IDN        142            
+SDO_GEOMETRY(2001, 4326, SDO_POINT_TYPE(117.198059, -2.2869319, NULL), NULL, NUL
+L)                                                                              
+                                                                                
+
+SQL> 
+SQL> 
+SQL> 
+SQL> -- task 4
+SQL> 
+SQL> select c1.name, SDO_GEOM.SDO_MBR(c1.GEOM)
+  2  from csci5715.COUNTRIES c1 where c1.name='France';
+
+NAME                                                                            
+--------------------------------------------------                              
+SDO_GEOM.SDO_MBR(C1.GEOM)(SDO_GTYPE, SDO_SRID, SDO_POINT(X, Y, Z), SDO_ELEM_INFO
+--------------------------------------------------------------------------------
+France                                                                          
+SDO_GEOMETRY(2003, 4326, NULL, SDO_ELEM_INFO_ARRAY(1, 1003, 3), SDO_ORDINATE_ARR
+AY(-5.134723, 41.364166, 9.562222, 51.09111))                                   
+                                                                                
+
+SQL> 
+SQL> 
+SQL> --task 5
+SQL> 
+SQL> select r1.name, SDO_GEOM.SDO_LENGTH(r1.GEOM, 0.5) as length
+  2  from csci5715.RIVERS r1 order by length desc;
+
+NAME                                                                            
+--------------------------------------------------------------------------------
+    LENGTH                                                                      
+----------                                                                      
+Nile                                                                            
+4672849.18                                                                      
+                                                                                
+Amazonas                                                                        
+4475835.79                                                                      
+                                                                                
+Chang                                                                           
+4358774.98                                                                      
+                                                                                
+
+NAME                                                                            
+--------------------------------------------------------------------------------
+    LENGTH                                                                      
+----------                                                                      
+Mississippi                                                                     
+ 4221147.1                                                                      
+                                                                                
+Mekong                                                                          
+3763898.67                                                                      
+                                                                                
+Ob                                                                              
+3727320.02                                                                      
+                                                                                
+
+NAME                                                                            
+--------------------------------------------------------------------------------
+    LENGTH                                                                      
+----------                                                                      
+Lena                                                                            
+ 3661448.4                                                                      
+                                                                                
+Congo                                                                           
+ 3487296.7                                                                      
+                                                                                
+Peace                                                                           
+3041367.57                                                                      
+                                                                                
+
+NAME                                                                            
+--------------------------------------------------------------------------------
+    LENGTH                                                                      
+----------                                                                      
+Parana                                                                          
+2632117.64                                                                      
+                                                                                
+Brahmaputra                                                                     
+2553708.02                                                                      
+                                                                                
+Donau                                                                           
+2265181.75                                                                      
+                                                                                
+
+NAME                                                                            
+--------------------------------------------------------------------------------
+    LENGTH                                                                      
+----------                                                                      
+Yangtze                                                                         
+3989.45417                                                                      
+                                                                                
+
+13 rows selected.
+
+SQL> 
+SQL> 
+SQL> -- task 6
+SQL> 
+SQL> select c1.name as city, co1.name as country
+  2  from csci5715.CITIES c1,
+  3  csci5715.COUNTRIES co1,
+  4  csci5715.RIVERS r1
+  5  where r1.name = 'Nile'
+  6  and SDO_CONTAINS(co1.GEOM, c1.GEOM) = 'TRUE'
+  7  and SDO_GEOM.SDO_DISTANCE(c1.GEOM, r1.GEOM, 0.5) < 1000000;
+
+CITY                                                                            
+--------------------------------------------------------------------------------
+COUNTRY                                                                         
+--------------------------------------------------                              
+Kigali                                                                          
+Rwanda                                                                          
+                                                                                
+Juba                                                                            
+Sudan                                                                           
+                                                                                
+Bujumbura                                                                       
+Burundi                                                                         
+                                                                                
+
+CITY                                                                            
+--------------------------------------------------------------------------------
+COUNTRY                                                                         
+--------------------------------------------------                              
+Dodoma                                                                          
+United Republic of Tanzania                                                     
+                                                                                
+Amman                                                                           
+Jordan                                                                          
+                                                                                
+Asmara                                                                          
+Eritrea                                                                         
+                                                                                
+
+CITY                                                                            
+--------------------------------------------------------------------------------
+COUNTRY                                                                         
+--------------------------------------------------                              
+Beirut                                                                          
+Lebanon                                                                         
+                                                                                
+Kampala                                                                         
+Uganda                                                                          
+                                                                                
+Nicosia                                                                         
+Cyprus                                                                          
+                                                                                
+
+CITY                                                                            
+--------------------------------------------------------------------------------
+COUNTRY                                                                         
+--------------------------------------------------                              
+Ankara                                                                          
+Turkey                                                                          
+                                                                                
+Damascus                                                                        
+Syrian Arab Republic                                                            
+                                                                                
+Khartoum                                                                        
+Sudan                                                                           
+                                                                                
+
+CITY                                                                            
+--------------------------------------------------------------------------------
+COUNTRY                                                                         
+--------------------------------------------------                              
+Tel Aviv-Yafo                                                                   
+Israel                                                                          
+                                                                                
+Jerusalem                                                                       
+Palestine                                                                       
+                                                                                
+Athens                                                                          
+Greece                                                                          
+                                                                                
+
+CITY                                                                            
+--------------------------------------------------------------------------------
+COUNTRY                                                                         
+--------------------------------------------------                              
+Addis Ababa                                                                     
+Ethiopia                                                                        
+                                                                                
+Nairobi                                                                         
+Kenya                                                                           
+                                                                                
+Cairo                                                                           
+Egypt                                                                           
+                                                                                
+
+18 rows selected.
+
+SQL> 
+SQL> -- task 7
+SQL> 
+SQL> SELECT c.name city, r.name river, SDO_GEOM.SDO_DISTANCE(r.GEOM, c.GEOM, 0.5) as distance
+  2  FROM csci5715.RIVERS r, csci5715.CITIES c
+  3  WHERE r.name = 'Mississippi'
+  4  AND c.name = 'Chicago';
+
+CITY                                                                            
+--------------------------------------------------------------------------------
+RIVER                                                                           
+--------------------------------------------------------------------------------
+  DISTANCE                                                                      
+----------                                                                      
+Chicago                                                                         
+Mississippi                                                                     
+393966.712                                                                      
+                                                                                
+
+SQL> 
+SQL> -- task 8
+SQL> 
+SQL> select name, length from (
+  2  select r1.name, SDO_GEOM.SDO_LENGTH(r1.GEOM, 0.5) as length
+  3  from csci5715.RIVERS r1 order by length desc) where rownum<=1;
+
+NAME                                                                            
+--------------------------------------------------------------------------------
+    LENGTH                                                                      
+----------                                                                      
+Nile                                                                            
+4672849.18                                                                      
+                                                                                
+
+SQL> 
+SQL> 
+SQL> -- task9
+SQL> 
+SQL> select name, area from (
+  2  select c1.name, SDO_GEOM.SDO_AREA(c1.GEOM, 0.5) as area
+  3  from csci5715.COUNTRIES c1 order by area desc) where rownum<=1;
+
+NAME                                                     AREA                   
+-------------------------------------------------- ----------                   
+Russia                                             1.6945E+13                   
+
+SQL> SPOOL OFF
