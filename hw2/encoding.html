@@ -1,40 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <title>My Geocode App</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<style>
+	  /* Always set the map height explicitly to define the size of the div
+	   * element that contains the map. */
+	  #map {
+	    height: 100%;
+	  }
+	  /* Optional: Makes the sample page fill the window. */
+	  html, body {
+	    height: 100%;
+	    margin: 0;
+	    padding: 0;
+	  }
+	  #floating-panel {
+	    position: absolute;
+	    top: 10px;
+	    left: 25%;
+	    z-index: 5;
+	    background-color: #fff;
+	    padding: 5px;
+	    border: 1px solid #999;
+	    text-align: center;
+	    font-family: 'Roboto','sans-serif';
+	    line-height: 30px;
+	    padding-left: 10px;
+	  }
+	</style>
+ 	<title>My Geocode App</title>
 </head>
 <body>
+	<div id="floating-panel">
+		<input id="address" type="textbox" value="Duluth, MN">
+		<input id="submit" type="button" value="Geocode">
+	</div>
+	<div id="map"></div>
  
-  <script>
- 
-    geocode();
+	<script>
+	function initMap() {
+	var map = new google.maps.Map(document.getElementById('map'), {
+	  zoom: 8,
+	  center: {lat: 46.7819594641384, lng: -92.119453934523}
+	});
+	var geocoder = new google.maps.Geocoder();
 
-    function geocode(){
-      // Prevent actual submit
-      
+	document.getElementById('submit').addEventListener('click', function() {
+	  geocodeAddress(geocoder, map);
+	});
+	}
 
-      var location = 'Duluth, MN';
+	function geocodeAddress(geocoder, resultsMap) {
+	var address = document.getElementById('address').value;
+	geocoder.geocode({'address': address}, function(results, status) {
+	  if (status === 'OK') {
+	    resultsMap.setCenter(results[0].geometry.location);
+	    var marker = new google.maps.Marker({
+	      map: resultsMap,
+	      position: results[0].geometry.location
+	    });
+	  } else {
+	    alert('Geocode was not successful for the following reason: ' + status);
+	  }
+	});
+	}
 
-      axios.get('https://maps.googleapis.com/maps/api/geocode/json',{
-        params:{
-          address:location,
-          key:'AIzaSyCfVA0eyQGJuj0wGvRYN9wCyJTiH6CYxkg'
-        }
-      }).then(function(response){
-        console.log(response.data.results[0].address_components[0].long_name);
-        console.log(response.data.results[0].geometry.location);
-      }). catch(function(error){
+	geocode();
 
-        console.log(error);
-      });
-  
-  }
-  </script>
+	function geocode(){
+	  // Prevent actual submit
+	  
+
+	  var location = 'Duluth, MN';
+
+	  axios.get('https://maps.googleapis.com/maps/api/geocode/json',{
+	    params:{
+	      address:location,
+	      key:'AIzaSyCfVA0eyQGJuj0wGvRYN9wCyJTiH6CYxkg'
+	    }
+	  }).then(function(response){
+	    console.log(response.data.results[0].address_components[0].long_name);
+	    console.log(response.data.results[0].geometry.location);
+	  }). catch(function(error){
+
+	    console.log(error);
+	  });
+
+	}
+	</script>
+	<script async defer
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAO7_ThTa98OaCIV--3j_VpJWT8llRLCtk&callback=initMap">
+	</script>
 </body>
 </html>
 
