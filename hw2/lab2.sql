@@ -61,3 +61,67 @@ from csci5715.RIVERS r1 order by length desc) where rownum<=1;
 select name, area from (
 select c1.name, SDO_GEOM.SDO_AREA(c1.GEOM, 0.5) as area 
 from csci5715.COUNTRIES c1 order by area desc) where rownum<=1;
+
+
+
+
+
+
+-- EXTRA WORK:
+
+
+CREATE TABLE FALLS_INTO(SRC VARCHAR(30), DEST VARCHAR(30));
+Insert into FALLS_INTO (SRC, DEST) 
+VALUES
+('P1', 'PLATTE'),
+('P2', 'PLATTE'),
+('Y1', 'YELLOWSTONE'),
+('Y2', 'YELLOSTONE'),
+('PLATTE', 'MISSOURI'),
+('YELLOWSTONE','MISSOURI'),
+('MISSOURI','MISSIP'),
+('OHIO','MISSIP'),
+('RED','MISSIP'),('ARKANSAS','MISSIP');
+
+
+
+
+CREATE TABLE PRIOR (SRC VARCHAR(30), DEST VARCHAR(30));
+Insert into PRIOR (SRC, DEST) VALUES
+('PLATTE', 'MISSOURI'), ('YELLOWSTONE', 'MISSOURI');
+
+
+
+SELECT SRC FROM FALLS_INTO CONNECT BY PRIOR SOURCE = DEST START WITH DEST='MISSOURI';
+
+
+
+
+SELECT DISTINCT NAME FROM CSCI5715.RIVERS;
+
+SELECT R.ORIGIN, MIN(R.LENGHT) FROM CSCI5715.RIVERS R GROUP BY ORIGIN HACING COUNT(*)>1;
+
+
+SELECT R.Origin, MIN (R.length) AS Min-length FROM 
+CSCI5715.River GROUP BY R.Origin HAVING COUNT(*) > 1;
+
+
+
+
+
+SELECT distinct Co.Name
+FROM Country Co
+WHERE Co.GDP > ANY (
+			     SELECT Co1.GDP
+			     FROM Country Co1
+			    WHERE Co1.Name = 'Canada') ORDER BY NAME;
+
+
+
+
+
+
+
+
+
+
