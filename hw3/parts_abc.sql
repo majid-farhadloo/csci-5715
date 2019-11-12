@@ -16,30 +16,9 @@ SELECT SDO_NET.GET_NODE_DEGREE('airport', (SELECT AIRPORT_ID
 -- result: degree is 91
 
 -- question 4: not sure how to do this without iterating through the airport_list table
-SELECT AVG(deg)
-FROM ( SELECT SDO_NET.GET_NODE_OUT_DEGREE('airport', )
-
-)
-
-
-CREATE TABLE temp_out_degree (
-  ID NUMBER NOT NULL,
-  deg NUMBER NOT NULL,
-  PRIMARY KEY(ID)
-);
-
-BEGIN
-  FOR rec IN (SELECT AIRPORT_ID FROM airport_list) LOOP
-    INSERT INTO temp_out_degree (ID, deg)
-    VALUES (AIRPORT_ID, SELECT SDO_NET.GET_NODE_OUT_DEGREE('airport', rec) FROM DUAL);
-  END LOOP;
-END;
-
-SELECT AVG(deg)
-FROM temp_out_degree
-
-DROP TABLE temp_out_degree;
--- todo
+SELECT AVG(SDO_NET.GET_NODE_OUT_DEGREE('airport', a.AIRPORT_ID))
+FROM airport_list a;
+-- result: 13.9692833
 
 ---- Part B
 -- question 1
@@ -61,7 +40,6 @@ FROM airport_node$ a_n, airport_list, connects_from_gustavus c_g
 WHERE c_g.STOPS < 2
 AND a_n.NODE_ID = c_g.node_end_id
 AND a_n.NODE_ID = airport_list.AIRPORT_ID;
-
 -- result: AIRPORT_ID AIRPORT_NAME
 --         ---------- --------------------------------------------------
 --              12523 Juneau, AK
@@ -116,7 +94,19 @@ WHERE SDO_NN( c.GEOM, (SELECT GEOM FROM COUNTRY2018 c2 WHERE c2.NAME = 'Norway')
 -- question 2
 SELECT c.NAME
 FROM COUNTRY2018 c
-WHERE SDO_OVERLAPS( c.GEOM, (SELECT r.GEOM FROM RIVER2018 r WHERE r.NAME = 'Nile')) = 'TRUE';
+WHERE SDO_OVERLAPS( c.GEOM,
+  (SELECT SDO_GEOM.SDO_BUFFER(r.GEOM, m.DIMINFO, 1)
+    FROM RIVER2018 r, user_sdo_geom_metadata m
+    WHERE r.NAME = 'Nile'
+    AND m.TABLE_NAME = 'COUNTRIES'
+    AND m.COLUMN_NAME = 'GEOM' )
+  ) = 'TRUE';
+-- result:
+-- NAME
+-- --------------------------------------------------
+-- Egypt
+-- Uganda
+-- Sudan
 
 
 -- question 3
@@ -138,7 +128,7 @@ WHERE m.TABLE_NAME = 'COUNTRIES'
 AND m.COLUMN_NAME = 'GEOM'
 AND c1.NAME <> c2.NAME
 AND SDO_GEOM.WITHIN_DISTANCE(c1.GEOM, m.DIMINFO, 1, c2.GEOM, m.DIMINFO) = 'TRUE';
-
+-- it takes a very long time to run, longer than a half hour
 
 -- question 5
 SELECT c1.NAME, c2.NAME
